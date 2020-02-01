@@ -105,7 +105,6 @@ public class HotWireManager : AbstractLevelController
                         {
                             if(!touchedObject.GetComponent<DragItem>().GetDragItemComplete())
                             {
-                                Debug.Log("Achei o bichao");
                                 currentDragItem = touchedObject.GetComponent<DragItem>();
                                 isHoldingObject = true;
                             }
