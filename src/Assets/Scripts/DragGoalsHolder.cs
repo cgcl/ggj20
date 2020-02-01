@@ -12,7 +12,7 @@ public class DragGoalsHolder : AbstractLevelController
 
     void FixedUpdate()
     {
-        if (Finished)
+        if(Finished)
         {
             return;
         }
@@ -21,7 +21,7 @@ public class DragGoalsHolder : AbstractLevelController
         {
             allGoalsCompleted = goalSlots[i].GetIsGoalCompleted();
         }
-        if (allGoalsCompleted)
+        if(allGoalsCompleted)
         {
             Finished = true;
             StartCoroutine(PlayVictory());
