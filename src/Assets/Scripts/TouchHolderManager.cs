@@ -54,6 +54,7 @@ namespace GGJ20
 
             if (holdCount == totalHolders)
             {
+                
                 foreach (HoldItem holdItem in holders)
                 {
                     holdItem.Done = true;
