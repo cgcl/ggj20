@@ -9,6 +9,7 @@ namespace GGJ20
         private bool progress;
         private bool finshed;
 
+        private double totalTime;
         private double currentCountdown;
 
         private Text uiText;
@@ -22,9 +23,15 @@ namespace GGJ20
                 uiTextAvailable = uiText != null;
             }
         }
+
+        public double Progression()
+        {
+            return (currentCountdown / totalTime);
+        }
         
         public void InitCountdown(double totalTime)
         {
+            this.totalTime = totalTime;
             currentCountdown = totalTime;
         }
 
