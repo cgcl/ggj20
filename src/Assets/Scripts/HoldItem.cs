@@ -20,6 +20,11 @@ namespace GGJ20
 
         public void TouchEnd()
         {
+            if (!IsHolding)
+            {
+                return;
+            }
+            
             IsHolding = false;
             
             Debug.Log("TouchEnd > " + gameObject.name);

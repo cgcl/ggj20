@@ -1,30 +1,72 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace GGJ20
 {
-    public class TouchHolderManager : MonoBehaviour
+    public class TouchHolderManager : MonoBehaviour, ILevelManager
     {
-        public List<HoldItem> holders;
+        [SerializeField] private int totalHolders = 3;
+        
+        private List<HoldItem> holders;
 
-        void Update()
+        
+        void Awake()
         {
-            if (Input.touchCount <= 0)
+        }
+        
+        void Start()
+        {
+            holders = new List<HoldItem>();
+            var allHolder = GetComponentsInChildren<HoldItem>();
+            
+            // TODO: Selecionar aleatoriamente quais ficam e quais desligam.
+            for (int i = 0; i < allHolder.Length; i++)
             {
-                return;
-            }
-
-            int i = 0;
-            for (i = 0; i < Input.touchCount; i++)
-            {
-                Touch touch = Input.GetTouch(i);
-                
-
-                if (touch.phase == TouchPhase.Began)
+                if (i < totalHolders)
                 {
-                    
+                    holders.Add(allHolder[i]);    
+                }
+                else
+                {
+                    allHolder[i].gameObject.SetActive(false);
                 }
             }
+        }
+
+        private void Update()
+        {
+            int holdCount = 0;
+            foreach (HoldItem holdItem in holders)
+            {
+                if (!holdItem.IsHolding)
+                {
+                    return;
+                }
+
+                holdCount++;
+            }
+
+            if (holdCount == totalHolders)
+            {
+                // Completed.
+            }
+        }
+
+        /// <summary>
+        /// Play any kind of animation on finish successful the level.
+        /// In the end, call gameprogression to load next level.
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerator PlayVictory()
+        {
+            Debug.Log("[TouchHolderManager] PlayVictory");
+            
+            yield return new WaitForSeconds(3.0f);
+            
+            GameProgression.Singleton.NextLevel();
+            
+            yield break;
         }
     }
 }
