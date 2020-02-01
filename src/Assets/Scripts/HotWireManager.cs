@@ -15,11 +15,14 @@ public class HotWireManager : AbstractLevelController
 
     private bool isHotWireCompleted = false;
     private ScrewPanel screwPanel;
-    private GoalItem goalWire;
+
+    private DragItem currentDragItem;
 
     private bool isUnscrewing = false;
 
     private ScrewGoal currentScrewGoal;
+
+    private bool isHoldingObject = false;
 
 
     void Awake()
@@ -49,14 +52,12 @@ public class HotWireManager : AbstractLevelController
                 case TouchPhase.Began:
                     Vector2 startPos = touch.position;
                     Collider2D touchedObject = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(startPos));
-                    Debug.Log("Achei alguma coisa");
                     if(touchedObject)
                     {
                         if(touchedObject.GetComponent<ScrewGoal>())
                         {
                             currentScrewGoal = touchedObject.GetComponent<ScrewGoal>();
                             isUnscrewing = true;
-                            Debug.Log("Achei um parafuso");
                         }
                     }
                     break; 
@@ -69,13 +70,11 @@ public class HotWireManager : AbstractLevelController
                             if(isUnscrewing && currentScrewGoal.isScrewed)
                             {
                                 currentScrewGoal.Unscrew();
-                                Debug.Log("Descoisando parafuso");
                             }
                         }
                     }
                     break;
                 case TouchPhase.Ended:
-                    Debug.Log("Tirei o dedo");
                     isUnscrewing = false;
                     currentScrewGoal = null;
                     break;
@@ -85,15 +84,54 @@ public class HotWireManager : AbstractLevelController
                 isUnscrewing = false;
                 currentScrewGoal = null;
                 currentTouchMode = TouchMode.DRAG;
-
-                Debug.Log("Cabei de desparafusar");
             }
         }
     }
 
     void HandleDragTouchInput()
     {
-        Debug.Log("HORA DE PLUGAR CABOS");
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            switch(touch.phase)
+            {
+                case TouchPhase.Began:
+                    Vector2 startPos = touch.position;
+                    Collider2D touchedObject = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(startPos));
+                    if(touchedObject)
+                    {
+                        if(touchedObject.GetComponent<DragItem>())
+                        {
+                            if(!touchedObject.GetComponent<DragItem>().GetDragItemComplete())
+                            {
+                                currentDragItem = touchedObject.GetComponent<DragItem>();
+                            }
+                        }
+                    }                    
+                    break;
+                case TouchPhase.Stationary:
+                    break;
+                case TouchPhase.Moved:
+                    Vector2 currentPos = touch.position;
+                    if(isHoldingObject)
+                    {
+                        var newDragPosition = Camera.main.ScreenToWorldPoint(currentPos);
+                        newDragPosition.z = -1f;
+                        currentDragItem.transform.position = newDragPosition;
+                    }                    
+                    break;
+                case TouchPhase.Ended:
+                    if(isHoldingObject)
+                    {
+                        currentDragItem.EndTouchDrag();
+                    }
+                    currentDragItem = null;
+                    isHoldingObject = false;                     
+                    break;
+            }
+                
+        }
+
     }
     
 }
