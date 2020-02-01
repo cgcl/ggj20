@@ -14,11 +14,18 @@ public class HotWireManager : AbstractLevelController
     private TouchMode currentTouchMode = TouchMode.SCREWDRIVER;
 
     private bool isHotWireCompleted = false;
+    private ScrewPanel screwPanel;
     private GoalItem goalWire;
 
     private bool isUnscrewing = false;
 
     private ScrewGoal currentScrewGoal;
+
+
+    void Awake()
+    {
+        screwPanel = FindObjectOfType<ScrewPanel>();
+    }
     void Update()
     {
         switch(currentTouchMode)
@@ -62,12 +69,15 @@ public class HotWireManager : AbstractLevelController
                     }
                     break;
                 case TouchPhase.Ended:
-                    if(isUnscrewing)
-                    {
-                        isUnscrewing = false;
-                        currentScrewGoal = null;
-                    }
+                    isUnscrewing = false;
+                    currentScrewGoal = null;
                     break;
+            }
+            if(screwPanel.GetIsPanelComplete())
+            {
+                isUnscrewing = false;
+                currentScrewGoal = null;
+                currentTouchMode = TouchMode.DRAG;
             }
         }
     }

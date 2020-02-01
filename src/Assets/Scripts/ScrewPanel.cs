@@ -6,6 +6,8 @@ public class ScrewPanel : MonoBehaviour
 {
     public List<ScrewGoal> screwGoals;
 
+    private bool isPanelComplete = false;
+
     private bool allScrewsFinished = false;
 
     void FixedUpdate()
@@ -22,6 +24,11 @@ public class ScrewPanel : MonoBehaviour
 
     void CompleteScrewPanel()
     {
-        
+        isPanelComplete = true;
+    }
+
+    public bool GetIsPanelComplete()
+    {
+        return isPanelComplete;
     }
 }
