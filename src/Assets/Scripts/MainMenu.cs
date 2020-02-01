@@ -29,9 +29,7 @@ namespace GGJ20
             
             yield return new WaitForSeconds(3.0f);
             
-            GameProgression.Singleton.NextLevel();
-            
-            yield break;
+            GameProgression.Singleton.StartTheGame(); 
         }
     }
     

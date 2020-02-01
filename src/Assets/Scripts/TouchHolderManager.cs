@@ -4,20 +4,16 @@ using UnityEngine;
 
 namespace GGJ20
 {
-    public class TouchHolderManager : MonoBehaviour, ILevelManager
+    public class TouchHolderManager : AbstractLevelController
     {
         [SerializeField] private int totalHolders = 3;
         
         private List<HoldItem> holders;
-
-        public bool Finished { get; set; }
-        
-        void Awake()
-        {
-        }
         
         void Start()
         {
+            base.Start();
+            
             holders = new List<HoldItem>();
             var allHolder = GetComponentsInChildren<HoldItem>();
             
@@ -66,22 +62,6 @@ namespace GGJ20
                 Finished = true;
                 StartCoroutine(PlayVictory());
             }
-        }
-
-        /// <summary>
-        /// Play any kind of animation on finish successful the level.
-        /// In the end, call gameprogression to load next level.
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerator PlayVictory()
-        {
-            Debug.Log("[TouchHolderManager] PlayVictory");
-            
-            yield return new WaitForSeconds(3.0f);
-            
-            GameProgression.Singleton.NextLevel();
-            
-            
         }
     }
 }

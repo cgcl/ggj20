@@ -40,10 +40,15 @@ public class TouchDragManager : MonoBehaviour
                 case TouchPhase.Stationary:
                     break;
                 case TouchPhase.Moved:
-                    currentPos = touch.position;
-                    var deltaPosition = Camera.main.ScreenToWorldPoint(currentPos - startPos);
-                    currentHeldObject.transform.position += deltaPosition;
-                    startPos = currentPos;
+                    if(isHoldingObject)
+                    {
+                        currentPos = touch.position;
+                        var newDragPosition = Camera.main.ScreenToWorldPoint(currentPos);
+                        newDragPosition.z = 10f;
+                        currentHeldObject.transform.position = newDragPosition;
+                        startPos = currentPos;
+                    }
+                    
                     break;
                 case TouchPhase.Ended:
                     currentPos = touch.position;
