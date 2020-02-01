@@ -17,6 +17,22 @@ namespace GGJ20
         {
         
         }
+
+        public void StartTheGame()
+        {
+            StartCoroutine(PlayIntroAnimation());
+        }
+
+        private IEnumerator PlayIntroAnimation()
+        {
+            Debug.Log("[MainMenu] Playing here the intro animation :)");
+            
+            yield return new WaitForSeconds(3.0f);
+            
+            GameProgression.Singleton.NextLevel();
+            
+            yield break;
+        }
     }
     
 }
