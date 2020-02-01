@@ -1,0 +1,86 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using GGJ20;
+
+public class HotWireManager : AbstractLevelController
+{
+    private enum TouchMode
+    {
+        SCREWDRIVER,
+        DRAG
+    }
+
+    private TouchMode currentTouchMode = TouchMode.SCREWDRIVER;
+
+    private bool isHotWireCompleted = false;
+    private GoalItem goalWire;
+
+    private bool isUnscrewing = false;
+
+    private ScrewGoal currentScrewGoal;
+    void Update()
+    {
+        switch(currentTouchMode)
+        {
+            case TouchMode.DRAG:
+                HandleDragTouchInput();
+                break;
+            case TouchMode.SCREWDRIVER:
+                HandleScrewdriverInput();
+                break;
+        }
+    }
+
+    void HandleDragTouchInput()
+    {
+        if(Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            switch(touch.phase)
+            {
+                case TouchPhase.Began:
+                    Vector2 startPos = touch.position;
+                    Collider2D touchedObject = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(startPos));
+                    if(touchedObject)
+                    {
+                        if(touchedObject.GetComponent<ScrewGoal>())
+                        {
+                            currentScrewGoal = touchedObject.GetComponent<ScrewGoal>();
+                            isUnscrewing = true;
+                        }
+                    }
+                    break; 
+                case TouchPhase.Stationary:
+                    Vector2 currentPos = touch.position;
+                    if(currentScrewGoal.GetComponent<Collider2D>() == Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(currentPos)))
+                    {
+                        if(isUnscrewing && currentScrewGoal.isScrewed)
+                        {
+                            currentScrewGoal.Unscrew();
+                        }
+                    }
+                    break;
+                case TouchPhase.Ended:
+                    if(isUnscrewing)
+                    {
+                        isUnscrewing = false;
+                        currentScrewGoal = null;
+                    }
+                    break;
+            }
+        }
+    }
+
+    void HandleScrewdriverInput()
+    {
+
+    }
+
+
+
+
+
+
+    
+}
