@@ -17,7 +17,12 @@ namespace GGJ20
         [SerializeField]
         private TextMeshPro uiText;
 
-       // public event void OnFinish ;
+        public Action OnFinishTimer;
+
+        public void Awake()
+        {
+            Pause();
+        }
         
         public double Progression()
         {
@@ -49,8 +54,12 @@ namespace GGJ20
                 return;
             }
 
-            if (currentCountdown < 0)
+            if (currentCountdown <= 0)
             {
+                OnFinishTimer?.Invoke();
+
+                Pause();
+                
                 return;
             }
             

@@ -42,8 +42,8 @@ namespace GGJ20
         }
 
         private void Start()
-        {   
-            
+        {
+            regressiveTimer.OnFinishTimer += GameOver;
         }
 
         /// <summary>
