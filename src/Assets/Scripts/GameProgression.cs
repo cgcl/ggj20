@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,14 +8,17 @@ namespace GGJ20
 {
     public class GameProgression : MonoBehaviour
     {
-        public int CurrentLevel { get; private set; }
+        public int CurrentLevelIndex { get; private set; }
+
+        public ILevelManager CurrentLevelManager { get; set; }
         
         [SerializeField] private List<string> stageList;
 
-        private Scene currentLoadedScene;
-
         private static GameProgression instance;
 
+        // Timer area
+        private DateTime gameStartTime; 
+        
         public static GameProgression Singleton
         {
             get { return instance;}
@@ -22,22 +26,30 @@ namespace GGJ20
         
         private void Awake()
         {
-            CurrentLevel = -1;
             DontDestroyOnLoad(this);
             instance = this;
+        }
+
+        /// <summary>
+        /// Entry point to start the game, pressing play button on main screen.
+        /// </summary>
+        public void StartTheGame()
+        {
+            CurrentLevelIndex = -1;
+            NextLevel();
         }
         
         public void NextLevel()
         {
-            CurrentLevel++;
-            if (CurrentLevel >= stageList.Count)
+            CurrentLevelIndex++;
+            if (CurrentLevelIndex >= stageList.Count)
             {
                 // End Game!
                 StartCoroutine(PlaySuccessfulEndGame());
                 return;
             }
 
-            StartCoroutine(LoadLevel(CurrentLevel));
+            StartCoroutine(LoadLevel(CurrentLevelIndex));
         }
 
         private IEnumerator LoadLevel(int index)
@@ -48,7 +60,7 @@ namespace GGJ20
             {
                 yield return null;
             }
-
+          
             if (index - 1 >= 0)
             {
                 SceneManager.UnloadSceneAsync(stageList[index - 1], UnloadSceneOptions.None);
