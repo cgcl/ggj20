@@ -10,6 +10,11 @@ public class DragGoalsHolder : AbstractLevelController
 
     private bool allGoalsCompleted = false;
 
+    void Awake()
+    {
+        Finished = false;
+    }
+
     void FixedUpdate()
     {
         if(Finished)
