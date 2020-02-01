@@ -131,7 +131,7 @@ namespace GGJ20
 
             if (playTransition)
             {
-                yield return new WaitForSeconds(0.25f);    
+                yield return new WaitForSeconds(0.45f);    
             }
             TransitionAnimator.gameObject.SetActive(false);
         }
