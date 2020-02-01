@@ -19,8 +19,12 @@ namespace GGJ20
 
         [SerializeField] private Animator TransitionAnimator;
 
-        // Timer area
-        private DateTime gameStartTime; 
+
+        
+        [SerializeField] private RegressiveTimer regressiveTimer;
+
+        [Header("Configs")]
+        [SerializeField] private double Duration;
         
         public static GameProgression Singleton
         {
@@ -40,8 +44,8 @@ namespace GGJ20
         }
 
         private void Start()
-        {
-                
+        {   
+            
         }
 
         /// <summary>
@@ -59,6 +63,8 @@ namespace GGJ20
         {
             CurrentLevelIndex = -1;
             NextLevel();
+            
+            regressiveTimer.InitCountdown(20f);
         }
         
         /// <summary>
@@ -82,7 +88,15 @@ namespace GGJ20
 
         private IEnumerator LoadLevel(int index)
         {
+            regressiveTimer.Pause();
+            
+            regressiveTimer.gameObject.SetActive(false);
+            
             yield return LoadScene(stageList[index], LoadSceneMode.Single);
+            
+            regressiveTimer.gameObject.SetActive(true);
+            
+            regressiveTimer.Unpause();
         }
 
         private IEnumerator PlaySuccessfulEndGame()
@@ -128,6 +142,9 @@ namespace GGJ20
             {
                 yield return null;
             }
+
+            var canvas = GetComponentInChildren<Canvas>();
+            canvas.worldCamera = Camera.main;
 
             if (playTransition)
             {

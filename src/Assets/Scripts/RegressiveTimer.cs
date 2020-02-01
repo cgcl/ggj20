@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,17 +13,8 @@ namespace GGJ20
         private double totalTime;
         private double currentCountdown;
 
-        private Text uiText;
-        private bool uiTextAvailable;
-        public Text UIText
-        {
-            get { return uiText;}
-            set
-            {
-                uiText = value;
-                uiTextAvailable = uiText != null;
-            }
-        }
+        [SerializeField]
+        private TextMeshPro uiText;
 
         public double Progression()
         {
@@ -53,11 +45,6 @@ namespace GGJ20
             }
             
             currentCountdown -= Time.deltaTime;
-
-            if (!uiTextAvailable)
-            {
-                return;
-            }
 
             uiText.text = currentCountdown.ToString("D2:D2");
         }
