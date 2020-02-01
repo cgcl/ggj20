@@ -83,11 +83,6 @@ namespace GGJ20
         private IEnumerator LoadLevel(int index)
         {
             yield return LoadScene(stageList[index], LoadSceneMode.Single);
-         
-            if (index - 1 >= 0)
-            {
-                SceneManager.UnloadSceneAsync(stageList[index - 1], UnloadSceneOptions.None);
-            } 
         }
 
         private IEnumerator PlaySuccessfulEndGame()
@@ -136,7 +131,7 @@ namespace GGJ20
 
             if (playTransition)
             {
-                yield return new WaitForSeconds(0.25f);    
+                yield return new WaitForSeconds(0.45f);    
             }
             TransitionAnimator.gameObject.SetActive(false);
         }

@@ -8,6 +8,8 @@ namespace GGJ20
 
         public bool Done { get; set; }
 
+        public GameObject bloodParticle;
+
         private void Start()
         {
             Done = false;
@@ -16,6 +18,8 @@ namespace GGJ20
         public void TouchStart()
         {
             IsHolding = true;
+
+            bloodParticle.SetActive(false);
 
             Debug.Log("TouchStart > " + gameObject.name);
         }
@@ -29,6 +33,8 @@ namespace GGJ20
             
             IsHolding = false;
             
+            bloodParticle.SetActive(true);
+
             Debug.Log("TouchEnd > " + gameObject.name);
         }
     }

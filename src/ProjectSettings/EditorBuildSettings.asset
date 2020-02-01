@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Templates/DragToTarget - Template.unity
     guid: 23fb4788c39fd294cb0c02ac38f54939
+  - enabled: 1
+    path: Assets/Scenes/Levels/HoldUntil - Minigame 1.unity
+    guid: 679f6644b3203b64c9a3712d90e3c87f
+  - enabled: 1
+    path: Assets/Scenes/Levels/DragToTarget - Minigame 1.unity
+    guid: 8db2be431490f084690a1fb7333075d7
   m_configObjects: {}
