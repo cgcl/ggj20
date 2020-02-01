@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,7 +20,7 @@ namespace GGJ20
         [SerializeField] private RegressiveTimer regressiveTimer;
 
         [Header("Configs")]
-        [SerializeField] private double Duration;
+        [SerializeField] private float Duration;
         
         public static GameProgression Singleton
         {
@@ -62,7 +60,7 @@ namespace GGJ20
             CurrentLevelIndex = -1;
             NextLevel();
             
-            regressiveTimer.InitCountdown(20f);
+            regressiveTimer.InitCountdown(Duration);
         }
         
         /// <summary>

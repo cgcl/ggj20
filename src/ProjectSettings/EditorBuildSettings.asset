@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/DragToTarget - Minigame 1.unity
     guid: 8db2be431490f084690a1fb7333075d7
   - enabled: 1
+    path: Assets/Scenes/Levels/DragToTarget - Minigame 2.unity
+    guid: 7036a321a1daa0c4aaea3470a9eb5ea8
+  - enabled: 1
     path: Assets/Scenes/Levels/HoldUntil-Minigame 2.unity
     guid: e194fb675ec8a33418ddf9d0a5fc4a29
   - enabled: 1

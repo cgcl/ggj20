@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,8 +11,6 @@ namespace GGJ20
         
         void Start()
         {
-            
-            
             holders = new List<HoldItem>();
             var allHolder = GetComponentsInChildren<HoldItem>();
             
