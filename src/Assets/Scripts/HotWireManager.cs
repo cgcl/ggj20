@@ -39,7 +39,7 @@ public class HotWireManager : AbstractLevelController
         }
     }
 
-    void HandleDragTouchInput()
+    void HandleScrewdriverInput()
     {
         if(Input.touchCount > 0)
         {
@@ -49,12 +49,14 @@ public class HotWireManager : AbstractLevelController
                 case TouchPhase.Began:
                     Vector2 startPos = touch.position;
                     Collider2D touchedObject = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(startPos));
+                    Debug.Log("Achei alguma coisa");
                     if(touchedObject)
                     {
                         if(touchedObject.GetComponent<ScrewGoal>())
                         {
                             currentScrewGoal = touchedObject.GetComponent<ScrewGoal>();
                             isUnscrewing = true;
+                            Debug.Log("Achei um parafuso");
                         }
                     }
                     break; 
@@ -65,10 +67,12 @@ public class HotWireManager : AbstractLevelController
                         if(isUnscrewing && currentScrewGoal.isScrewed)
                         {
                             currentScrewGoal.Unscrew();
+                            Debug.Log("Descoisando parafuso");
                         }
                     }
                     break;
                 case TouchPhase.Ended:
+                    Debug.Log("Tirei o dedo");
                     isUnscrewing = false;
                     currentScrewGoal = null;
                     break;
@@ -78,13 +82,15 @@ public class HotWireManager : AbstractLevelController
                 isUnscrewing = false;
                 currentScrewGoal = null;
                 currentTouchMode = TouchMode.DRAG;
+
+                Debug.Log("Cabei de desparafusar");
             }
         }
     }
 
-    void HandleScrewdriverInput()
+    void HandleDragTouchInput()
     {
-
+        Debug.Log("HORA DE PLUGAR CABOS");
     }
 
 
