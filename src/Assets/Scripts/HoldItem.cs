@@ -6,11 +6,13 @@ namespace GGJ20
     {
         public bool IsHolding { get; private set; }
 
-        public void Start()
-        {
-            
-        }
+        public bool Done { get; set; }
 
+        private void Start()
+        {
+            Done = false;
+        }
+        
         public void TouchStart()
         {
             IsHolding = true;
@@ -20,7 +22,7 @@ namespace GGJ20
 
         public void TouchEnd()
         {
-            if (!IsHolding)
+            if (!IsHolding || Done)
             {
                 return;
             }

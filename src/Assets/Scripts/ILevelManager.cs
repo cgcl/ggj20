@@ -5,7 +5,7 @@ namespace GGJ20
 {
     public interface ILevelManager
     {
-        bool Finished;
+        bool Finished { get; set; }
         IEnumerator PlayVictory();
     }
 }

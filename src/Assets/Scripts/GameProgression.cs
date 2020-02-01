@@ -22,6 +22,7 @@ namespace GGJ20
         
         private void Awake()
         {
+            CurrentLevel = -1;
             DontDestroyOnLoad(this);
             instance = this;
         }
@@ -32,6 +33,7 @@ namespace GGJ20
             if (CurrentLevel >= stageList.Count)
             {
                 // End Game!
+                StartCoroutine(PlaySuccessfulEndGame());
                 return;
             }
 
@@ -40,7 +42,7 @@ namespace GGJ20
 
         private IEnumerator LoadLevel(int index)
         {
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(stageList[index], LoadSceneMode.Additive);
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(stageList[index], LoadSceneMode.Single);
             // Wait until the asynchronous scene fully loads
             while (!asyncLoad.isDone)
             {
@@ -51,6 +53,13 @@ namespace GGJ20
             {
                 SceneManager.UnloadSceneAsync(stageList[index - 1], UnloadSceneOptions.None);
             } 
+        }
+
+        private IEnumerator PlaySuccessfulEndGame()
+        {
+            Debug.Log("[GameProgression] Finished the progression!");
+            
+            yield break;
         }
     }
 }
