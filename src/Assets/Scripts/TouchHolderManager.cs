@@ -12,7 +12,7 @@ namespace GGJ20
         
         void Start()
         {
-            base.Start();
+            
             
             holders = new List<HoldItem>();
             var allHolder = GetComponentsInChildren<HoldItem>();
@@ -31,6 +31,8 @@ namespace GGJ20
             }
 
             Finished = false;
+            
+            base.Start();
         }
 
         private void Update()

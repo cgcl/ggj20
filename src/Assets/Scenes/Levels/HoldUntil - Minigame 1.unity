@@ -112,12 +112,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &59626134 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
-    type: 3}
-  m_PrefabInstance: {fileID: 2064699990}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &59626135 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000013488956786, guid: abb9f519b142e304d9c45b56afa768bc,
@@ -321,11 +315,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
---- !u!1 &512636886 stripped
+--- !u!1 &296990373 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
     type: 3}
-  m_PrefabInstance: {fileID: 1300171166}
+  m_PrefabInstance: {fileID: 296990372}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &512636887 stripped
 Transform:
@@ -449,7 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9659728ca89843f49b4961e982ac452b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodParticle: {fileID: 512636886}
+  bloodParticle: {fileID: 1300171167}
 --- !u!114 &516992755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,12 +512,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 516992750}
   m_CullTransparentMesh: 0
---- !u!1 &523533108 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
-    type: 3}
-  m_PrefabInstance: {fileID: 296990372}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &523533109 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000013488956786, guid: abb9f519b142e304d9c45b56afa768bc,
@@ -862,7 +850,7 @@ MonoBehaviour:
   VictoryAnimator: {fileID: 570566691}
   IntroductionAnimator: {fileID: 0}
   LoseAnimator: {fileID: 0}
-  totalHolders: 3
+  totalHolders: 4
 --- !u!1 &810340519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,7 +1010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9659728ca89843f49b4961e982ac452b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodParticle: {fileID: 59626134}
+  bloodParticle: {fileID: 2064699991}
 --- !u!114 &852976943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1267,6 +1255,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1240261756}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1240261758 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1240261756}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1300171166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1324,11 +1318,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
---- !u!1 &1305866576 stripped
+--- !u!1 &1300171167 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
     type: 3}
-  m_PrefabInstance: {fileID: 1240261756}
+  m_PrefabInstance: {fileID: 1300171166}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1488046389
 GameObject:
@@ -1624,7 +1618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9659728ca89843f49b4961e982ac452b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodParticle: {fileID: 1305866576}
+  bloodParticle: {fileID: 1240261758}
 --- !u!114 &1633807013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1809,7 +1803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9659728ca89843f49b4961e982ac452b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodParticle: {fileID: 523533108}
+  bloodParticle: {fileID: 296990373}
 --- !u!114 &2033106055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1935,3 +1929,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
+--- !u!1 &2064699991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2064699990}
+  m_PrefabAsset: {fileID: 0}

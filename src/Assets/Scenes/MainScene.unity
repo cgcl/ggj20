@@ -1133,8 +1133,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageList:
-  - Scenes/Templates/HoldUntil-Template
-  - Scenes/Templates/DragToTarget - Template
+  - Scenes/Levels/DragToTarget - Minigame 1
+  - Scenes/Levels/HoldUntil - Minigame 1
   TransitionAnimator: {fileID: 187461558}
 --- !u!1 &1495113223
 GameObject:

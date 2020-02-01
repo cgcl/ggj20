@@ -36,10 +36,7 @@ namespace GGJ20
             {
                 VictoryAnimator.SetTrigger("Victory");
                 yield return new WaitForSeconds(VictoryAnimator.GetCurrentAnimatorStateInfo(0).length);
-            }
-            else
-            {
-                yield return new WaitForSeconds(1.0f);    
+                yield return new WaitForSeconds(0.5f); 
             }
             
             GameProgression.Singleton.NextLevel();

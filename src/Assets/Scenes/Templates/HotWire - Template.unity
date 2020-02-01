@@ -179,6 +179,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8812376116243068222, guid: d630944318d2cad4c83039dee73d75f0,
+        type: 3}
+      propertyPath: screwHP
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812376116243068222, guid: d630944318d2cad4c83039dee73d75f0,
+        type: 3}
+      propertyPath: unscrewSpeed
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812376116243068222, guid: d630944318d2cad4c83039dee73d75f0,
+        type: 3}
+      propertyPath: unscrewHPRatio
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d630944318d2cad4c83039dee73d75f0, type: 3}
 --- !u!4 &47032742 stripped
@@ -406,6 +421,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812376116243068222, guid: d630944318d2cad4c83039dee73d75f0,
+        type: 3}
+      propertyPath: screwHP
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812376116243068222, guid: d630944318d2cad4c83039dee73d75f0,
+        type: 3}
+      propertyPath: unscrewSpeed
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812376116243068222, guid: d630944318d2cad4c83039dee73d75f0,
+        type: 3}
+      propertyPath: unscrewHPRatio
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d630944318d2cad4c83039dee73d75f0, type: 3}
@@ -938,6 +968,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8812376116243068222, guid: d630944318d2cad4c83039dee73d75f0,
+        type: 3}
+      propertyPath: screwHP
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812376116243068222, guid: d630944318d2cad4c83039dee73d75f0,
+        type: 3}
+      propertyPath: unscrewSpeed
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812376116243068222, guid: d630944318d2cad4c83039dee73d75f0,
+        type: 3}
+      propertyPath: unscrewHPRatio
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d630944318d2cad4c83039dee73d75f0, type: 3}
 --- !u!114 &2077756382 stripped
@@ -1024,6 +1069,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812376116243068222, guid: d630944318d2cad4c83039dee73d75f0,
+        type: 3}
+      propertyPath: screwHP
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812376116243068222, guid: d630944318d2cad4c83039dee73d75f0,
+        type: 3}
+      propertyPath: unscrewSpeed
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812376116243068222, guid: d630944318d2cad4c83039dee73d75f0,
+        type: 3}
+      propertyPath: unscrewHPRatio
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d630944318d2cad4c83039dee73d75f0, type: 3}
