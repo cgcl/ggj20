@@ -31,6 +31,10 @@ public class TouchDragManager : MonoBehaviour
                     {
                         if(dragObjects[i].GetComponent<Collider2D>() == Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(startPos)))
                         {
+                            if(dragObjects[i].GetDragItemComplete())
+                            {
+                                break;
+                            }
                             isHoldingObject = true;
                             currentHeldObject = dragObjects[i];
                             Debug.Log("SEGURANDO OBJETO: " + currentHeldObject.name);
@@ -40,21 +44,25 @@ public class TouchDragManager : MonoBehaviour
                 case TouchPhase.Stationary:
                     break;
                 case TouchPhase.Moved:
+                    currentPos = touch.position;
                     if(isHoldingObject)
                     {
-                        currentPos = touch.position;
                         var newDragPosition = Camera.main.ScreenToWorldPoint(currentPos);
-                        newDragPosition.z = 10f;
+                        newDragPosition.z = -1f;
                         currentHeldObject.transform.position = newDragPosition;
-                        startPos = currentPos;
                     }
+                    startPos = currentPos;
                     
                     break;
                 case TouchPhase.Ended:
-                    currentPos = touch.position;
-                    currentHeldObject.EndTouchDrag();
+                    if(isHoldingObject)
+                    {
+                        currentPos = touch.position;
+                        currentHeldObject.EndTouchDrag();
+                    }
                     currentHeldObject = null;
-                    isHoldingObject = false;                    
+                    isHoldingObject = false;
+                                        
                     break;
             }
                 

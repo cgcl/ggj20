@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,7 +20,6 @@ namespace GGJ20
         // Timer area
         private DateTime gameStartTime; 
         
-        
         public static GameProgression Singleton
         {
             get { return instance;}
@@ -27,10 +27,29 @@ namespace GGJ20
         
         private void Awake()
         {
+            if (instance != null)
+            {
+                Destroy(this);
+                return;
+            }
+            
             DontDestroyOnLoad(this);
             instance = this;
         }
 
+        private void Start()
+        {
+                
+        }
+
+        /// <summary>
+        /// Reset anything....
+        /// </summary>
+        private void Reset()
+        {
+            
+        }
+        
         /// <summary>
         /// Entry point to start the game, pressing play button on main screen.
         /// </summary>
@@ -49,7 +68,10 @@ namespace GGJ20
             if (CurrentLevelIndex >= stageList.Count)
             {
                 // End Game!
-                StartCoroutine(PlaySuccessfulEndGame());
+                //StartCoroutine(PlaySuccessfulEndGame());
+
+                GameOver();
+
                 return;
             }
 
@@ -92,12 +114,18 @@ namespace GGJ20
         /// <returns></returns>
         private IEnumerator DoPlayGameOver()
         {
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Scenes/GameOver", LoadSceneMode.Single);
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Scenes/GameOverScene", LoadSceneMode.Single);
             while (!asyncLoad.isDone)
             {
                 yield return null;
             }
         }
+
+        public void GoToMenu()
+        {
+            SceneManager.LoadSceneAsync("Scenes/MainScene", LoadSceneMode.Single);
+        }
+        
 
     }
 }
