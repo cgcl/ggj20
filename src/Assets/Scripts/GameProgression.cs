@@ -19,6 +19,7 @@ namespace GGJ20
         // Timer area
         private DateTime gameStartTime; 
         
+        
         public static GameProgression Singleton
         {
             get { return instance;}
@@ -39,6 +40,9 @@ namespace GGJ20
             NextLevel();
         }
         
+        /// <summary>
+        /// Load the next level.
+        /// </summary>
         public void NextLevel()
         {
             CurrentLevelIndex++;
@@ -73,5 +77,27 @@ namespace GGJ20
             
             yield break;
         }
+
+        /// <summary>
+        /// Call game over scene.
+        /// </summary>
+        public void GameOver()
+        {
+            StartCoroutine(DoPlayGameOver());
+        }
+        
+        /// <summary>
+        /// Load the game over scene.
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerator DoPlayGameOver()
+        {
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Scenes/GameOver", LoadSceneMode.Single);
+            while (!asyncLoad.isDone)
+            {
+                yield return null;
+            }
+        }
+
     }
 }

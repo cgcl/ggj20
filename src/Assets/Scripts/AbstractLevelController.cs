@@ -81,6 +81,8 @@ namespace GGJ20
             {
                 yield return new WaitForSeconds(1.0f);    
             }
+            
+            GameProgression.Singleton.GameOver();
         }
     }
 }
