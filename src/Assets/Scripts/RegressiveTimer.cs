@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace GGJ20
 {
@@ -10,11 +11,18 @@ namespace GGJ20
         private bool progress;
         private bool finshed;
 
-        private double totalTime;
+        private float totalTime;
         private float currentCountdown;
 
+        private const int flameInitialX = 131;
+        private const int flameFinalX = -114;
+        
+        
         [SerializeField]
         private TextMeshPro uiText;
+
+        [SerializeField] private RectTransform Flame;
+        [SerializeField] private Image Match;
 
         public Action OnFinishTimer;
 
@@ -23,7 +31,7 @@ namespace GGJ20
             Pause();
         }
         
-        public double Progression()
+        public float Progression()
         {
             return (currentCountdown / totalTime);
         }
@@ -33,6 +41,11 @@ namespace GGJ20
             this.totalTime = totalTime;
             currentCountdown = totalTime;
 
+            Match.fillAmount = 1.0f;
+            Flame.localPosition = new Vector3(115, 31, 0 );
+            
+            Flame.gameObject.SetActive(true);
+            
             Pause();
         }
 
@@ -57,6 +70,8 @@ namespace GGJ20
             {
                 OnFinishTimer?.Invoke();
 
+                Flame.gameObject.SetActive(false);
+                
                 Pause();
                 
                 return;
@@ -67,6 +82,12 @@ namespace GGJ20
             currentCountdown = Mathf.Max(currentCountdown, 0.0f);
 
             uiText.text = currentCountdown.ToString("0.##");
+
+            Match.fillAmount = 0.2f + (0.8f * Progression());
+
+            var diff = (flameInitialX - flameFinalX) * (1.0f - Progression());
+            Flame.localPosition = new Vector3(flameInitialX - diff, 31f, 0f);
+
         }
     }
 }
