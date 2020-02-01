@@ -17,7 +17,7 @@ namespace GGJ20
         [SerializeField]
         private TextMeshPro uiText;
 
-        public event void OnFinish ;
+       // public event void OnFinish ;
         
         public double Progression()
         {
