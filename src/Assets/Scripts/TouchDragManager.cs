@@ -41,8 +41,8 @@ public class TouchDragManager : MonoBehaviour
                     break;
                 case TouchPhase.Moved:
                     currentPos = touch.position;
-                    Vector2 deltaPosition = currentPos - startPos;
-                    currentHeldObject.transform.position += new Vector3(deltaPosition.x, deltaPosition.y);
+                    var deltaPosition = Camera.main.ScreenToWorldPoint(currentPos - startPos);
+                    currentHeldObject.transform.position += deltaPosition;
                     startPos = currentPos;
                     break;
                 case TouchPhase.Ended:
