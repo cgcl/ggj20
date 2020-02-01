@@ -16,6 +16,8 @@ namespace GGJ20
         protected void Start()
         {
             GameProgression.Singleton.CurrentLevelManager = this;
+
+            StartCoroutine(PlayIntroduction());
         }
 
         /// <summary>
@@ -25,6 +27,8 @@ namespace GGJ20
         /// <returns></returns>
         public IEnumerator PlayVictory()
         {
+            Debug.Log("[AbstractLevelController] PlayVictory");
+            
             Finished = true;
             Active = false;
 
@@ -43,16 +47,40 @@ namespace GGJ20
 
         public IEnumerator PlayIntroduction()
         {
-            yield return new WaitForSeconds(1.0f);
+            Debug.Log("[AbstractLevelController] PlayIntroduction");
             
-            Active = true; 
+            Finished = false;
+            Active = false;
+            
+            if (IntroductionAnimator != null)
+            {
+                IntroductionAnimator.SetTrigger("Introduction");
+                yield return new WaitForSeconds(IntroductionAnimator.GetCurrentAnimatorStateInfo(0).length);
+            }
+            else
+            {
+                yield return new WaitForSeconds(1.0f);    
+            }
+            
+            Active = true;
+            
         }
 
         public IEnumerator PlayLoseAnimation()
         {
+            Debug.Log("[AbstractLevelController] PlayLoseAnimation");
+            
             Active = false;
             
-            yield return new WaitForSeconds(1.0f);
+            if (LoseAnimator != null)
+            {
+                LoseAnimator.SetTrigger("Lose");
+                yield return new WaitForSeconds(LoseAnimator.GetCurrentAnimatorStateInfo(0).length);
+            }
+            else
+            {
+                yield return new WaitForSeconds(1.0f);    
+            }
         }
     }
 }
