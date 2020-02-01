@@ -10,6 +10,7 @@ namespace GGJ20
         
         private List<HoldItem> holders;
 
+        public bool Finished { get; set; }
         
         void Awake()
         {
@@ -32,10 +33,18 @@ namespace GGJ20
                     allHolder[i].gameObject.SetActive(false);
                 }
             }
+
+            Finished = false;
         }
 
         private void Update()
         {
+            // Already finished.
+            if (Finished)
+            {
+                return;
+            }
+            
             int holdCount = 0;
             foreach (HoldItem holdItem in holders)
             {
@@ -49,7 +58,13 @@ namespace GGJ20
 
             if (holdCount == totalHolders)
             {
-                // Completed.
+                foreach (HoldItem holdItem in holders)
+                {
+                    holdItem.Done = true;
+                }
+
+                Finished = true;
+                StartCoroutine(PlayVictory());
             }
         }
 
@@ -66,7 +81,7 @@ namespace GGJ20
             
             GameProgression.Singleton.NextLevel();
             
-            yield break;
+            
         }
     }
 }
