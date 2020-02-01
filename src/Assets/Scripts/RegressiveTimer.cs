@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,20 +12,24 @@ namespace GGJ20
         private bool finshed;
 
         private double totalTime;
-        private double currentCountdown;
+        private float currentCountdown;
 
         [SerializeField]
         private TextMeshPro uiText;
 
+        public event void OnFinish ;
+        
         public double Progression()
         {
             return (currentCountdown / totalTime);
         }
         
-        public void InitCountdown(double totalTime)
+        public void InitCountdown(float totalTime)
         {
             this.totalTime = totalTime;
             currentCountdown = totalTime;
+
+            Pause();
         }
 
         public void Pause()
@@ -43,10 +48,17 @@ namespace GGJ20
             {
                 return;
             }
+
+            if (currentCountdown < 0)
+            {
+                return;
+            }
             
             currentCountdown -= Time.deltaTime;
 
-            uiText.text = currentCountdown.ToString("D2:D2");
+            currentCountdown = Mathf.Max(currentCountdown, 0.0f);
+
+            uiText.text = currentCountdown.ToString("0.##");
         }
     }
 }

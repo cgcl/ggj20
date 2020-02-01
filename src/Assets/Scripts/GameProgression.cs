@@ -19,8 +19,6 @@ namespace GGJ20
 
         [SerializeField] private Animator TransitionAnimator;
 
-
-        
         [SerializeField] private RegressiveTimer regressiveTimer;
 
         [Header("Configs")]
