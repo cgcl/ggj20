@@ -25,7 +25,7 @@ public class ScrewPanel : MonoBehaviour
     void CompleteScrewPanel()
     {
         isPanelComplete = true;
-        gameObject.GetComponentInChildren<SpriteRenderer>().enabled = false;
+        gameObject.SetActive(false);
     }
 
     public bool GetIsPanelComplete()

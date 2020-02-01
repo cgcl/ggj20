@@ -84,6 +84,7 @@ public class HotWireManager : AbstractLevelController
                 isUnscrewing = false;
                 currentScrewGoal = null;
                 currentTouchMode = TouchMode.DRAG;
+                screwPanel = null;
             }
         }
     }
@@ -92,6 +93,7 @@ public class HotWireManager : AbstractLevelController
     {
         if (Input.touchCount > 0)
         {
+            Debug.Log("Comecando drag");
             Touch touch = Input.GetTouch(0);
             switch(touch.phase)
             {
@@ -104,6 +106,7 @@ public class HotWireManager : AbstractLevelController
                         {
                             if(!touchedObject.GetComponent<DragItem>().GetDragItemComplete())
                             {
+                                Debug.Log("Achei o bichao");
                                 currentDragItem = touchedObject.GetComponent<DragItem>();
                             }
                         }
