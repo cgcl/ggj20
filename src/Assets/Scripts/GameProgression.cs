@@ -17,6 +17,8 @@ namespace GGJ20
 
         private static GameProgression instance;
 
+        [SerializeField] private Animator TransitionAnimator;
+
         // Timer area
         private DateTime gameStartTime; 
         
@@ -80,13 +82,8 @@ namespace GGJ20
 
         private IEnumerator LoadLevel(int index)
         {
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(stageList[index], LoadSceneMode.Single);
-            // Wait until the asynchronous scene fully loads
-            while (!asyncLoad.isDone)
-            {
-                yield return null;
-            }
-          
+            yield return LoadScene(stageList[index], LoadSceneMode.Single);
+         
             if (index - 1 >= 0)
             {
                 SceneManager.UnloadSceneAsync(stageList[index - 1], UnloadSceneOptions.None);
@@ -114,16 +111,34 @@ namespace GGJ20
         /// <returns></returns>
         private IEnumerator DoPlayGameOver()
         {
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Scenes/GameOverScene", LoadSceneMode.Single);
-            while (!asyncLoad.isDone)
-            {
-                yield return null;
-            }
+            yield return LoadScene("Scenes/GameOverScene", LoadSceneMode.Single);
         }
 
         public void GoToMenu()
         {
-            SceneManager.LoadSceneAsync("Scenes/MainScene", LoadSceneMode.Single);
+            StartCoroutine(LoadScene("Scenes/MainScene", LoadSceneMode.Single, false));
+        }
+
+        private IEnumerator LoadScene(string sceneName, LoadSceneMode mode, bool playTransition = true)
+        {
+            if (playTransition)
+            {
+                TransitionAnimator.gameObject.SetActive(true);
+
+                yield return new WaitForSeconds(1.0f);
+            }
+            
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, mode);
+            while (!asyncLoad.isDone)
+            {
+                yield return null;
+            }
+
+            if (playTransition)
+            {
+                yield return new WaitForSeconds(0.25f);    
+            }
+            TransitionAnimator.gameObject.SetActive(false);
         }
         
 
