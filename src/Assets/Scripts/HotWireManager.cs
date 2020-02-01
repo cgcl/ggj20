@@ -62,12 +62,15 @@ public class HotWireManager : AbstractLevelController
                     break; 
                 case TouchPhase.Stationary:
                     Vector2 currentPos = touch.position;
-                    if(currentScrewGoal.GetComponent<Collider2D>() == Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(currentPos)))
+                    if(currentScrewGoal)
                     {
-                        if(isUnscrewing && currentScrewGoal.isScrewed)
+                        if(currentScrewGoal.GetComponent<Collider2D>() == Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(currentPos)))
                         {
-                            currentScrewGoal.Unscrew();
-                            Debug.Log("Descoisando parafuso");
+                            if(isUnscrewing && currentScrewGoal.isScrewed)
+                            {
+                                currentScrewGoal.Unscrew();
+                                Debug.Log("Descoisando parafuso");
+                            }
                         }
                     }
                     break;
@@ -92,11 +95,5 @@ public class HotWireManager : AbstractLevelController
     {
         Debug.Log("HORA DE PLUGAR CABOS");
     }
-
-
-
-
-
-
     
 }
