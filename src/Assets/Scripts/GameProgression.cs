@@ -83,11 +83,6 @@ namespace GGJ20
         private IEnumerator LoadLevel(int index)
         {
             yield return LoadScene(stageList[index], LoadSceneMode.Single);
-         
-            if (index - 1 >= 0)
-            {
-                SceneManager.UnloadSceneAsync(stageList[index - 1], UnloadSceneOptions.None);
-            } 
         }
 
         private IEnumerator PlaySuccessfulEndGame()
