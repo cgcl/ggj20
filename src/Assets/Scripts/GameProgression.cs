@@ -111,6 +111,8 @@ namespace GGJ20
         {
             Debug.Log("[GameProgression] Finished the progression!");
             
+            regressiveTimer.gameObject.SetActive(false);
+            
             yield return LoadScene("Scenes/GameWinScene", LoadSceneMode.Single);
             
             yield break;
@@ -138,7 +140,9 @@ namespace GGJ20
 
         public void GoToMenu()
         {
-            StartCoroutine(LoadScene("Scenes/MainScene", LoadSceneMode.Single, false));
+            regressiveTimer.gameObject.SetActive(false);
+            
+            StartCoroutine(LoadScene("Scenes/MainScene", LoadSceneMode.Single));
         }
 
         private IEnumerator LoadScene(string sceneName, LoadSceneMode mode, bool playTransition = true)
