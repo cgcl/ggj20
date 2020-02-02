@@ -24,10 +24,14 @@ public class DragGoalsHolder : AbstractLevelController
         {
             return;
         }
-        
+        int countCompletion = 0;
         for(int i = 0;i < goalSlots.Count; i++)
         {
-            allGoalsCompleted = goalSlots[i].GetIsGoalCompleted();
+            if(goalSlots[i].GetIsGoalCompleted())
+            {
+                countCompletion++;
+            }
+            allGoalsCompleted = (countCompletion >= goalSlots.Count);
         }
         if(allGoalsCompleted)
         {
