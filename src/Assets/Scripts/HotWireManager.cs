@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using GGJ20;
 
-public class HotWireManager : AbstractLevelController
+public class HotWireManager : MonoBehaviour
 {
     private enum TouchMode
     {
