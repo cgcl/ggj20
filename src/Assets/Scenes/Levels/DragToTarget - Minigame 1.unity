@@ -343,7 +343,7 @@ PrefabInstance:
     - target: {fileID: 4292636576692357630, guid: 03511ca63ce6b914b93ebf3f1e2e0361,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 573.10034
+      value: 601
       objectReference: {fileID: 0}
     - target: {fileID: 4292636576692357630, guid: 03511ca63ce6b914b93ebf3f1e2e0361,
         type: 3}
@@ -385,6 +385,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4292636576692357630, guid: 03511ca63ce6b914b93ebf3f1e2e0361,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4292636576692357630, guid: 03511ca63ce6b914b93ebf3f1e2e0361,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4292636576692357630, guid: 03511ca63ce6b914b93ebf3f1e2e0361,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4292636576692357616, guid: 03511ca63ce6b914b93ebf3f1e2e0361,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -414,6 +429,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Fix the door!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4292636576692357616, guid: 03511ca63ce6b914b93ebf3f1e2e0361,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 127.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4292636576692357616, guid: 03511ca63ce6b914b93ebf3f1e2e0361,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 127.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4292636576692357616, guid: 03511ca63ce6b914b93ebf3f1e2e0361,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03511ca63ce6b914b93ebf3f1e2e0361, type: 3}
