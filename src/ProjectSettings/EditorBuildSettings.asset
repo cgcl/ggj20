@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/HoldUntil-Minigame 2.unity
     guid: e194fb675ec8a33418ddf9d0a5fc4a29
   - enabled: 1
+    path: Assets/Scenes/GameWinScene.unity
+    guid: 93f54f4d8016732469bb175cd7b51a01
+  - enabled: 1
     path: Assets/Scenes/Levels/HotWire - Minigame 1.unity
     guid: 2fd7dc05d5b008e46b2e06e8cb4a211e
   m_configObjects: {}

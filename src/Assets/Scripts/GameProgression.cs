@@ -72,9 +72,7 @@ namespace GGJ20
             if (CurrentLevelIndex >= stageList.Count)
             {
                 // End Game!
-                //StartCoroutine(PlaySuccessfulEndGame());
-
-                GameOver();
+                StartCoroutine(PlaySuccessfulEndGame());
 
                 return;
             }
@@ -99,6 +97,8 @@ namespace GGJ20
         {
             Debug.Log("[GameProgression] Finished the progression!");
             
+            yield return LoadScene("Scenes/GameWinScene", LoadSceneMode.Single);
+            
             yield break;
         }
 
@@ -108,6 +108,7 @@ namespace GGJ20
         public void GameOver()
         {
             StartCoroutine(DoPlayGameOver());
+            //StartCoroutine(PlaySuccessfulEndGame());
         }
         
         /// <summary>
