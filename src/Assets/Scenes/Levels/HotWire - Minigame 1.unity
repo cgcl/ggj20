@@ -138,7 +138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6815583}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.55, y: -1.08, z: 0.38828743}
+  m_LocalPosition: {x: 1.55, y: -1.08, z: -1}
   m_LocalScale: {x: 0.75200313, y: 0.9600933, z: 0.97744894}
   m_Children: []
   m_Father: {fileID: 833795070}
@@ -180,7 +180,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ddc59c80326d2de4d8e804f5df7160fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -236,7 +236,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507117387}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.12699385, y: -0.05, z: -0.09375}
+  m_LocalPosition: {x: -0.12699385, y: -0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 833795070}
@@ -362,6 +362,11 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7866691576796522969, guid: 64cd3bce522ce9b4aa142999e6b2419b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ddc59c80326d2de4d8e804f5df7160fe, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64cd3bce522ce9b4aa142999e6b2419b, type: 3}
 --- !u!4 &800910576 stripped
@@ -473,6 +478,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: d54be5a947f366b48bfecfcfa7b7882d,
         type: 3}
+    - target: {fileID: 253154131367988054, guid: 704431e05026e08419ef8659654311c1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ddc59c80326d2de4d8e804f5df7160fe, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 704431e05026e08419ef8659654311c1, type: 3}
 --- !u!1 &833795069
@@ -526,7 +536,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ddc59c80326d2de4d8e804f5df7160fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1065,7 +1075,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ddc59c80326d2de4d8e804f5df7160fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
