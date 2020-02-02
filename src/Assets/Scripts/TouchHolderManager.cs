@@ -6,11 +6,17 @@ namespace GGJ20
     public class TouchHolderManager : AbstractLevelController
     {
         [SerializeField] private int totalHolders = 3;
+        private AudioSource audioSource;
         
         private List<HoldItem> holders;
+
+        public AudioClip[] audioClips;
         
         void Start()
         {
+            audioSource = GetComponent<AudioSource>();
+            audioSource.clip = audioClips[0];
+            audioSource.Play();
             holders = new List<HoldItem>();
             var allHolder = GetComponentsInChildren<HoldItem>();
             
@@ -58,6 +64,8 @@ namespace GGJ20
                 {
                     holdItem.Done = true;
                 }
+                audioSource.clip = audioClips[1];
+                audioSource.PlayOneShot(audioSource.clip);
 
                 Finished = true;
                 StartCoroutine(PlayVictory());

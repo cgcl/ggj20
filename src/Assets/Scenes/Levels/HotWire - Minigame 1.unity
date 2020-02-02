@@ -439,6 +439,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 833795070}
     m_Modifications:
+    - target: {fileID: 7966716544403571178, guid: 64cd3bce522ce9b4aa142999e6b2419b,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c59815e321707df40bb9de0654f86dec, type: 3}
     - target: {fileID: 7866691576302790160, guid: 64cd3bce522ce9b4aa142999e6b2419b,
         type: 3}
       propertyPath: m_Name
@@ -685,22 +690,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.7655062
       objectReference: {fileID: 0}
-    - target: {fileID: 253154131367988054, guid: 704431e05026e08419ef8659654311c1,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 253154131367988054, guid: 704431e05026e08419ef8659654311c1,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d54be5a947f366b48bfecfcfa7b7882d,
-        type: 3}
-    - target: {fileID: 253154131367988054, guid: 704431e05026e08419ef8659654311c1,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: ddc59c80326d2de4d8e804f5df7160fe, type: 2}
     - target: {fileID: 253154131409208716, guid: 704431e05026e08419ef8659654311c1,
         type: 3}
       propertyPath: m_Offset.y
@@ -721,6 +710,22 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 0.8622553
       objectReference: {fileID: 0}
+    - target: {fileID: 253154131367988054, guid: 704431e05026e08419ef8659654311c1,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 253154131367988054, guid: 704431e05026e08419ef8659654311c1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d54be5a947f366b48bfecfcfa7b7882d,
+        type: 3}
+    - target: {fileID: 253154131367988054, guid: 704431e05026e08419ef8659654311c1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ddc59c80326d2de4d8e804f5df7160fe, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 704431e05026e08419ef8659654311c1, type: 3}
 --- !u!1 &833795069

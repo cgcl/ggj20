@@ -69,10 +69,18 @@ public class HotWireManager : MonoBehaviour
                             {
                                 currentScrewGoal.Unscrew();
                             }
+                            else
+                            {
+                                currentScrewGoal.StopUnscrew();
+                            }
                         }
                     }
                     break;
                 case TouchPhase.Ended:
+                    if(currentScrewGoal)
+                    {
+                        currentScrewGoal.StopUnscrew();
+                    }
                     isUnscrewing = false;
                     currentScrewGoal = null;
                     break;
