@@ -13,14 +13,17 @@ namespace GGJ20
         
         [SerializeField] private List<string> stageList;
 
+        
         private static GameProgression instance;
 
         [SerializeField] private Animator TransitionAnimator;
 
-        [SerializeField] private RegressiveTimer regressiveTimer;
+        [SerializeField] public RegressiveTimer regressiveTimer;
 
         [Header("Configs")]
-        [SerializeField] private float Duration;
+        [SerializeField] private float Duration = 20;
+        [SerializeField] private int totalLevels = 4;
+        
         
         public static GameProgression Singleton
         {
@@ -35,6 +38,8 @@ namespace GGJ20
                 return;
             }
             
+            regressiveTimer.gameObject.SetActive(false);
+            
             DontDestroyOnLoad(this);
             instance = this;
         }
@@ -42,6 +47,13 @@ namespace GGJ20
         private void Start()
         {
             regressiveTimer.OnFinishTimer += GameOver;
+            
+            TransitionAnimator.gameObject.SetActive(false);
+        }
+
+        private void OnDestroy()
+        {
+            regressiveTimer.OnFinishTimer -= GameOver;
         }
 
         /// <summary>
@@ -57,6 +69,8 @@ namespace GGJ20
         /// </summary>
         public void StartTheGame()
         {
+            stageList.Sort(delegate(string s, string s1) { return Random.Range(0.0f, 1.0f) < 0.5 ? 1 : -1 ; });
+            
             CurrentLevelIndex = -1;
             NextLevel();
             
@@ -69,7 +83,7 @@ namespace GGJ20
         public void NextLevel()
         {
             CurrentLevelIndex++;
-            if (CurrentLevelIndex >= stageList.Count)
+            if (CurrentLevelIndex >= totalLevels)
             {
                 // End Game!
                 StartCoroutine(PlaySuccessfulEndGame());
@@ -106,7 +120,7 @@ namespace GGJ20
         /// Call game over scene.
         /// </summary>
         public void GameOver()
-        {
+        { 
             StartCoroutine(DoPlayGameOver());
             //StartCoroutine(PlaySuccessfulEndGame());
         }
@@ -117,6 +131,8 @@ namespace GGJ20
         /// <returns></returns>
         private IEnumerator DoPlayGameOver()
         {
+            regressiveTimer.gameObject.SetActive(false);
+            
             yield return LoadScene("Scenes/GameOverScene", LoadSceneMode.Single);
         }
 

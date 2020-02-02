@@ -31,6 +31,8 @@ namespace GGJ20
             
             Finished = true;
             Active = false;
+            
+            GameProgression.Singleton.regressiveTimer.Pause();
 
             if (VictoryAnimator != null)
             {
