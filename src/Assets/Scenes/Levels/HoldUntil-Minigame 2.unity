@@ -865,7 +865,7 @@ MonoBehaviour:
   totalHolders: 3
   audioClips:
   - {fileID: 8300000, guid: d7159f7496cd92643b47d5a78d6981c8, type: 3}
-  - {fileID: 8300000, guid: c56922b3ef83f7e4ea76f6e152a0b5a9, type: 3}
+  - {fileID: 8300000, guid: d61511a6f4844834888af9af4d281dbf, type: 3}
 --- !u!82 &787665568
 AudioSource:
   m_ObjectHideFlags: 0
