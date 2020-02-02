@@ -187,7 +187,7 @@ PrefabInstance:
     - target: {fileID: 4292636576692357630, guid: 03511ca63ce6b914b93ebf3f1e2e0361,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 629
+      value: 741
       objectReference: {fileID: 0}
     - target: {fileID: 4292636576692357630, guid: 03511ca63ce6b914b93ebf3f1e2e0361,
         type: 3}
@@ -591,7 +591,7 @@ MonoBehaviour:
     spaceCount: 2
     wordCount: 3
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -695,7 +695,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -633}
+  m_AnchoredPosition: {x: 0, y: -640}
   m_SizeDelta: {x: 400.2, y: 313.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1375755681
@@ -872,8 +872,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: -319}
-  m_SizeDelta: {x: 235.4, y: 72}
+  m_AnchoredPosition: {x: -8, y: -7}
+  m_SizeDelta: {x: 132.8, y: 72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1587024761
 MonoBehaviour:
@@ -1065,7 +1065,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 410}
+  m_AnchoredPosition: {x: 0, y: 540}
   m_SizeDelta: {x: 374.4, y: 54.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1736181107
@@ -1088,7 +1088,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Oh yeah! '
+  m_text: "Oh yeah! \nLook at my fingers now!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c322271331d7494686fd2d43b154ef6, type: 2}
   m_sharedMaterial: {fileID: 21598267981582032, guid: 7c322271331d7494686fd2d43b154ef6,
@@ -1134,7 +1134,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 10
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1158,12 +1158,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1736181107}
-    characterCount: 9
+    characterCount: 33
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 2
+    spaceCount: 7
+    wordCount: 7
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1265,12 +1265,12 @@ PrefabInstance:
     - target: {fileID: 5183060558151278575, guid: 8a86d29d1856c72439b2438aea5d6d9b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -268
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5183060558151278575, guid: 8a86d29d1856c72439b2438aea5d6d9b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 264
+      value: 253
       objectReference: {fileID: 0}
     - target: {fileID: 5183060558151278575, guid: 8a86d29d1856c72439b2438aea5d6d9b,
         type: 3}
