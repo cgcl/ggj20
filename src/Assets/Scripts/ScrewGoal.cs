@@ -9,28 +9,33 @@ public class ScrewGoal : MonoBehaviour
     
     public float unscrewSpeed = 3000f;
 
+    private AudioSource audioSource;
+
     public float unscrewHPRatio = 3f;
+    
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.loop = true;
+    }
     public void Unscrew()
     {
         screwHP -= (Time.deltaTime * unscrewHPRatio);
         transform.Rotate(0f, 0f ,Time.deltaTime*unscrewSpeed);
+        if(!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
         if(screwHP <= 0)
         {
             isScrewed = false;
-            FinishScrewing();
+            StopUnscrew();
         }
     }
-    void FinishScrewing()
+
+    public void StopUnscrew()
     {
-        StartCoroutine("AnimateUnscrew");
+        audioSource.Stop();
     }
 
-    public IEnumerator AnimateUnscrew()
-    {
-        yield return new WaitForEndOfFrame();
-        //TODO RODAR ANIMACAO DE PARAFUSO
-        yield return new WaitForSeconds(1f);
-
-
-    }
 }

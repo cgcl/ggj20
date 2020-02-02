@@ -10,9 +10,12 @@ public class DragGoalsHolder : AbstractLevelController
 
     private bool allGoalsCompleted = false;
 
+    private AudioSource audioSource;
+
     void Awake()
     {
         Finished = false;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -28,6 +31,7 @@ public class DragGoalsHolder : AbstractLevelController
         }
         if(allGoalsCompleted)
         {
+            audioSource.PlayOneShot(audioSource.clip);
             Finished = true;
             StartCoroutine(PlayVictory());
         }
